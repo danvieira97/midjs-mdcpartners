@@ -138,10 +138,38 @@ class CheckingAccount extends BankAccount {
   }
 }
 
-const ca = new CheckingAccount("CA-123", 500);
-ca.payment(100);
-ca.payment(150);
+// const ca = new CheckingAccount("CA-123", 500);
+// ca.payment(100);
+// ca.payment(150);
 
-const sa = new SavingsAccount("SA-789", 1000, 300);
-sa.saves(250);
-sa.deposit(100);
+// const sa = new SavingsAccount("SA-789", 1000, 300);
+// sa.saves(250);
+// sa.deposit(100);
+
+// File manipulation task
+const fs = require("fs");
+
+function countWordsInTextFile(file, callback) {
+  fs.readFile(file, "utf8", (err, data) => {
+    if (err) {
+      callback(err, null);
+      return;
+    }
+
+    const cleanedData = data.replace(/[^\w\s]/g, "");
+
+    const wordCount = cleanedData.split(/\s+/).length;
+
+    callback(null, wordCount);
+  });
+}
+
+const filename = "./testFile.txt";
+countWordsInTextFile(filename, (err, wordCount) => {
+  if (err) {
+    console.error("Erro to read the file:", err);
+    return;
+  }
+
+  console.log(`The file "${filename}" has ${wordCount} words.`);
+});
