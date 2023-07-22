@@ -66,3 +66,82 @@ class Stack {
 // console.log(myStack.push(4));
 // console.log(myStack.pop());
 // console.log(myStack.isEmpty());
+
+// Object Oriented task
+class BankAccount {
+  constructor(name, balance) {
+    this.name = name;
+    this.balance = balance;
+  }
+
+  deposit(value) {
+    this.balance += value;
+  }
+
+  withdraw(value) {
+    if (value > this.checkBalance()) {
+      return console.log("Insuficient founds");
+    }
+    this.balance -= value;
+  }
+
+  checkBalance() {
+    // console.log(`Your balance is: ${this.balance}`);
+    return this.balance;
+  }
+}
+
+class SavingsAccount extends BankAccount {
+  constructor(name, balance, save) {
+    super(name, balance);
+
+    this.save = save;
+  }
+
+  saves(value) {
+    if (value > this.checkBalance()) {
+      return console.log("You cant save this value");
+    }
+    this.balance -= value;
+    return (this.save += value);
+  }
+
+  checkSaves() {
+    console.log(`Your save is: ${this.save}`);
+    return this.save;
+  }
+}
+
+class CheckingAccount extends BankAccount {
+  constructor(name, balance) {
+    super(name, balance);
+
+    this.payments = [];
+  }
+
+  payment(value) {
+    if (value > this.checkBalance()) {
+      return console.log(`Your founds are insuficient`);
+    }
+    this.balance -= value;
+    this.payments.push(new Date().toISOString());
+
+    return console.log(
+      `Payment: ${
+        this.payments[this.payments.length - 1]
+      } completed successfully. Your balace now is: ${this.balance}`
+    );
+  }
+
+  checkPayments() {
+    return console.log(this.payments);
+  }
+}
+
+const ca = new CheckingAccount("CA-123", 500);
+ca.payment(100);
+ca.payment(150);
+
+const sa = new SavingsAccount("SA-789", 1000, 300);
+sa.saves(250);
+sa.deposit(100);
