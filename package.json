@@ -1,0 +1,15 @@
+{
+  "name": "midjs-mdcpartners",
+  "version": "1.0.0",
+  "description": "a project for a mid level software engineer test on MDC Partners",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "danvieira97",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
