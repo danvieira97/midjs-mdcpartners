@@ -1,0 +1,16 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

@@ -183,4 +183,11 @@ function fibonacci(number) {
   return fibonacci(number - 1) + fibonacci(number - 2);
 }
 
-console.log(fibonacci(8));
+// console.log(fibonacci(8));
+
+// Web Development task
+/*
+  cd webDevelopmentTask
+  npm i
+  npm run dev
+*/
