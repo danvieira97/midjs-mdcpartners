@@ -164,12 +164,23 @@ function countWordsInTextFile(file, callback) {
   });
 }
 
-const filename = "./testFile.txt";
-countWordsInTextFile(filename, (err, wordCount) => {
-  if (err) {
-    console.error("Erro to read the file:", err);
-    return;
+// const filename = "./testFile.txt";
+// countWordsInTextFile(filename, (err, wordCount) => {
+//   if (err) {
+//     console.error("Erro to read the file:", err);
+//     return;
+//   }
+
+//   console.log(`The file "${filename}" has ${wordCount} words.`);
+// });
+
+// Recursion task
+function fibonacci(number) {
+  if (number <= 2) {
+    return number - 1;
   }
 
-  console.log(`The file "${filename}" has ${wordCount} words.`);
-});
+  return fibonacci(number - 1) + fibonacci(number - 2);
+}
+
+console.log(fibonacci(8));
